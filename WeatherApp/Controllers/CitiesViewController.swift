@@ -31,8 +31,8 @@ class CitiesViewController: UIViewController {
 
 extension CitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let city = cities[indexPath.row]
-        self.selectedCity = city
+        self.selectedCity = cities[indexPath.row]
+        performSegue(withIdentifier: "ForecastSelectionSegue", sender: nil)
     }
 }
 

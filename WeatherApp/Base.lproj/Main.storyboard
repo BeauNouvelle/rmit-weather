@@ -27,9 +27,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="53P-lV-7EO" kind="show" identifier="forecastSelectionSegue" id="mct-qb-eY7"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -50,6 +47,7 @@
                     <navigationItem key="navigationItem" id="UDe-oy-dLd"/>
                     <connections>
                         <outlet property="tableView" destination="Nuh-wt-VhB" id="32R-6A-eiH"/>
+                        <segue destination="53P-lV-7EO" kind="show" identifier="ForecastSelectionSegue" id="u6a-sy-93e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
