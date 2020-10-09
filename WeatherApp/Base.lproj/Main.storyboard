@@ -27,6 +27,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Xhh-Kr-d1i" kind="show" identifier="ForecastSelectionSegue" id="B9w-qe-vht"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -47,47 +50,46 @@
                     <navigationItem key="navigationItem" id="UDe-oy-dLd"/>
                     <connections>
                         <outlet property="tableView" destination="Nuh-wt-VhB" id="32R-6A-eiH"/>
-                        <segue destination="53P-lV-7EO" kind="show" identifier="ForecastSelectionSegue" id="u6a-sy-93e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.6376811594205" y="116.51785714285714"/>
         </scene>
-        <!--Forecast Selection View Controller-->
-        <scene sceneID="96Z-zN-s3H">
+        <!--Forecast View Controller-->
+        <scene sceneID="03p-g5-aTk">
             <objects>
-                <viewController id="53P-lV-7EO" customClass="ForecastSelectionViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fLm-KA-iUZ">
+                <viewController id="Xhh-Kr-d1i" customClass="ForecastViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pa9-Yy-WeB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcz-EC-qPf">
-                                <rect key="frame" x="194" y="154" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hM-cU-D9R">
-                                <rect key="frame" x="227" y="183" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e6E-q1-z2b">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xhh-Kr-d1i" id="aXa-yB-fL0"/>
+                                    <outlet property="delegate" destination="Xhh-Kr-d1i" id="n10-jI-ax6"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="uhO-ZC-mNd"/>
+                        <viewLayoutGuide key="safeArea" id="LjR-5a-gBH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="e6E-q1-z2b" secondAttribute="bottom" id="2FX-DV-ljL"/>
+                            <constraint firstItem="e6E-q1-z2b" firstAttribute="trailing" secondItem="LjR-5a-gBH" secondAttribute="trailing" id="AUL-sx-Uta"/>
+                            <constraint firstItem="e6E-q1-z2b" firstAttribute="top" secondItem="LjR-5a-gBH" secondAttribute="top" id="XGF-yQ-YXj"/>
+                            <constraint firstItem="e6E-q1-z2b" firstAttribute="leading" secondItem="LjR-5a-gBH" secondAttribute="leading" id="rUY-S8-SHY"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ef1-U3-tc9"/>
+                    <navigationItem key="navigationItem" id="W6l-DI-61M"/>
                     <connections>
-                        <outlet property="tempLabel" destination="2hM-cU-D9R" id="GAt-VP-iLe"/>
+                        <outlet property="tableView" destination="e6E-q1-z2b" id="2Ph-ed-F0G"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XwW-bm-kz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGw-iH-70E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786.9565217391305" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1781" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1xg-dR-Rah">
