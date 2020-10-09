@@ -23,7 +23,7 @@ class CitiesViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ForecastSelectionViewController {
+        if let destination = segue.destination as? ForecastViewController {
             destination.city = selectedCity
         }
     }

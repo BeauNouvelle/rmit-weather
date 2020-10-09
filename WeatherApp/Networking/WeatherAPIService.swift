@@ -11,13 +11,13 @@ class WeatherAPIService {
 
     let baseUrl = URL(string: "https://api.openweathermap.org/data/2.5/onecall")!
 
-    func getWeather(for city: City, completion: @escaping (Result<Weather, Error>) -> ()) {
+    func getWeather(for city: City, completion: @escaping (Result<Forecast, Error>) -> ()) {
         var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: true)
 
-        #warning("Replace Your Key")
+//        #warning("Replace Your Key")
         let queries = [URLQueryItem(name: "lat", value: "\(city.lat)"),
                        URLQueryItem(name: "lon", value: "\(city.lon)"),
-                       URLQueryItem(name: "appid", value: "YOUR_KEY")]
+                       URLQueryItem(name: "appid", value: "ebbc6fd3a980891519cf45aee1ba031e")]
 
         urlComponents?.queryItems = queries
 
@@ -35,7 +35,7 @@ class WeatherAPIService {
             }
             DispatchQueue.main.async {
                 do {
-                    let weather = try JSONDecoder().decode(Weather.self, from: validData)
+                    let weather = try JSONDecoder().decode(Forecast.self, from: validData)
                     completion(.success(weather))
                 } catch {
                     print(error.localizedDescription)
