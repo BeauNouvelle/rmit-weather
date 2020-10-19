@@ -32,7 +32,7 @@ class CitiesViewController: UIViewController {
 extension CitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedCity = cities[indexPath.row]
-        performSegue(withIdentifier: "ForecastSelectionSegue", sender: nil)
+        performSegue(withIdentifier: "ForecastSelectionSegue", sender: self)
     }
 }
 

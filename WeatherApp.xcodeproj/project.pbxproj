@@ -17,6 +17,7 @@
 		8B6D2A63251C9C8E000ED927 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2A62251C9C8E000ED927 /* City.swift */; };
 		8B6D2A68251C9F51000ED927 /* WeatherAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2A67251C9F51000ED927 /* WeatherAPIService.swift */; };
 		8B6D2A6B251C9FC6000ED927 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2A6A251C9FC6000ED927 /* Forecast.swift */; };
+		8B8BA9C9253D38E800F2C2C5 /* CurrentForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BA9C8253D38E800F2C2C5 /* CurrentForecastTableViewCell.swift */; };
 		8BCE39DE252F07DF006974BB /* HourlyTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCE39DD252F07DF006974BB /* HourlyTableviewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		8B6D2A62251C9C8E000ED927 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		8B6D2A67251C9F51000ED927 /* WeatherAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIService.swift; sourceTree = "<group>"; };
 		8B6D2A6A251C9FC6000ED927 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		8B8BA9C8253D38E800F2C2C5 /* CurrentForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentForecastTableViewCell.swift; sourceTree = "<group>"; };
 		8BCE39DD252F07DF006974BB /* HourlyTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyTableviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				8BCE39DD252F07DF006974BB /* HourlyTableviewCell.swift */,
+				8B8BA9C8253D38E800F2C2C5 /* CurrentForecastTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				8B6D2A60251C9B04000ED927 /* ForecastViewController.swift in Sources */,
 				8B6D2A63251C9C8E000ED927 /* City.swift in Sources */,
+				8B8BA9C9253D38E800F2C2C5 /* CurrentForecastTableViewCell.swift in Sources */,
 				8BCE39DE252F07DF006974BB /* HourlyTableviewCell.swift in Sources */,
 				8B6D2A4A251C9962000ED927 /* CitiesViewController.swift in Sources */,
 				8B6D2A68251C9F51000ED927 /* WeatherAPIService.swift in Sources */,

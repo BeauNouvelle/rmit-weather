@@ -56,19 +56,24 @@ extension ForecastViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2 {
-            return 1
-        }
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell") as? CurrentForecastTableViewCell else {
+                return UITableViewCell()
+            }
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CELL") as? HourlyTableViewCell else {
-            return UITableViewCell()
+            cell.temperatureLabel.text = "\(forecast?.temp ?? -99999)"
+            cell.mainLabel.text = "\(forecast?.weather.first?.main ?? "")"
+            cell.weatherIconImageView?.image = UIImage(named: forecast?.weather.first?.icon ?? "01d")
+            cell.weatherIconImageView.layer.cornerRadius = 5
+
+            return cell
         }
 
-
-        return cell
+        return UITableViewCell()
     }
 
 }
