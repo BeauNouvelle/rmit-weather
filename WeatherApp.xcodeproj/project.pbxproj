@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2A74AD254177220003AEF8 /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A74AC254177220003AEF8 /* HourlyCollectionViewCell.swift */; };
 		8B6D2A46251C9962000ED927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2A45251C9962000ED927 /* AppDelegate.swift */; };
 		8B6D2A48251C9962000ED927 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2A47251C9962000ED927 /* SceneDelegate.swift */; };
 		8B6D2A4A251C9962000ED927 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2A49251C9962000ED927 /* CitiesViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B2A74AC254177220003AEF8 /* HourlyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionViewCell.swift; sourceTree = "<group>"; };
 		8B6D2A42251C9962000ED927 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B6D2A45251C9962000ED927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B6D2A47251C9962000ED927 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				8BCE39DD252F07DF006974BB /* HourlyTableviewCell.swift */,
 				8B8BA9C8253D38E800F2C2C5 /* CurrentForecastTableViewCell.swift */,
+				8B2A74AC254177220003AEF8 /* HourlyCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				8B6D2A46251C9962000ED927 /* AppDelegate.swift in Sources */,
 				8B6D2A48251C9962000ED927 /* SceneDelegate.swift in Sources */,
 				8B6D2A6B251C9FC6000ED927 /* Forecast.swift in Sources */,
+				8B2A74AD254177220003AEF8 /* HourlyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

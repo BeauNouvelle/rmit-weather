@@ -9,18 +9,18 @@ import Foundation
 
 struct Forecast: Decodable {
 
-    static let url = URL(string: "")!
-
     let dt: TimeInterval
     let sunrise: TimeInterval
     let sunset: TimeInterval
     let temp: Double
     let weather: [Weather]
     let daily: [Daily]
+    let hourly: [Hourly]
 
     enum CodingKeys: String, CodingKey {
         case current
         case daily
+        case hourly
 
         case dt
         case sunrise
@@ -32,6 +32,7 @@ struct Forecast: Decodable {
     init(from decoder: Decoder) throws {
         let root = try decoder.container(keyedBy: CodingKeys.self)
         daily = try root.decode([Daily].self, forKey: .daily)
+        hourly = try root.decode([Hourly].self, forKey: .hourly)
 
         let currentContainer = try root.nestedContainer(keyedBy: CodingKeys.self, forKey: .current)
         dt = try currentContainer.decode(TimeInterval.self, forKey: .dt)
@@ -45,6 +46,12 @@ struct Forecast: Decodable {
 struct Temp: Decodable {
     let min: Double
     let max: Double
+}
+
+struct Hourly: Decodable {
+    let temp: Double
+    let weather: [Weather]
+    let dt: Date
 }
 
 struct Daily: Decodable {
