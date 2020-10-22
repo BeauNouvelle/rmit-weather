@@ -51,6 +51,22 @@ class ForecastViewController: UIViewController {
 
 extension ForecastViewController: UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Hourly Forecast"
+        } else if section == 2 {
+            return "Daily Forecast"
+        }
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 1 {
+            return 100
+        }
+        return UITableView.automaticDimension
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -62,7 +78,7 @@ extension ForecastViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell") as? CurrentForecastTableViewCell else {
-                return UITableViewCell()
+                return CurrentForecastTableViewCell()
             }
 
             cell.temperatureLabel.text = "\(forecast?.temp ?? -99999)"
@@ -70,6 +86,9 @@ extension ForecastViewController: UITableViewDataSource {
             cell.weatherIconImageView?.image = UIImage(named: forecast?.weather.first?.icon ?? "01d")
             cell.weatherIconImageView.layer.cornerRadius = 5
 
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = HourlyTableViewCell(hourly: forecast?.hourly)
             return cell
         }
 

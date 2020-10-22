@@ -11,11 +11,13 @@ import UIKit
 final class HourlyTableViewCell: UITableViewCell {
 
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var hourly: [Hourly]?
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+    init(hourly: [Hourly]?) {
+        self.hourly = hourly
+        super.init(style: .default, reuseIdentifier: nil)
         setupSubviews()
+        collectionView.reloadData()
     }
 
     required init?(coder: NSCoder) {
@@ -24,8 +26,9 @@ final class HourlyTableViewCell: UITableViewCell {
 
     private func setupSubviews() {
         let layout = UICollectionViewFlowLayout()
-
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 100)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
         contentView.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +37,33 @@ final class HourlyTableViewCell: UITableViewCell {
         collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
 
-        collectionView.backgroundColor = .red
+        collectionView.register(HourlyCollectionViewCell.self, forCellWithReuseIdentifier: "HourlyCollectionViewCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+    }
+}
+
+extension HourlyTableViewCell: UICollectionViewDelegate {
+
+}
+
+extension HourlyTableViewCell: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return hourly?.count ?? 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyCollectionViewCell", for: indexPath) as? HourlyCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+
+        let hour = hourly?[indexPath.row]
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        cell.temperatureLabel.text = dateFormatter.string(from: hour!.dt)
+
+        return cell
     }
 }
