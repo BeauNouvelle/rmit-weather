@@ -11,6 +11,7 @@ import UIKit
 class ForecastViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
     let apiService = WeatherAPIService()
     var forecast: Forecast?
 
@@ -22,6 +23,29 @@ class ForecastViewController: UIViewController {
         title = city?.name
         tableView.register(HourlyTableViewCell.self, forCellReuseIdentifier: "CELL")
         tableView.rowHeight = UITableView.automaticDimension
+
+        let favButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(favButtonTapped))
+        navigationItem.rightBarButtonItem = favButton
+        updateFavButton()
+    }
+
+    @objc func favButtonTapped() {
+        if City.stored() == city {
+            UserDefaults.standard.setValue(nil, forKey: "cityName")
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        } else {
+            UserDefaults.standard.setValue(city?.data, forKey: "cityName")
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        }
+        updateFavButton()
+    }
+
+    private func updateFavButton() {
+        if City.stored() == city {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        } else {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

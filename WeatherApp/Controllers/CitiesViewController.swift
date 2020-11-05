@@ -14,7 +14,8 @@ class CitiesViewController: UIViewController {
     var selectedCity: City?
 
     let cities = [
-        City(name: "Melbourne", lat: -37.81, lon: 144.96)
+        City(name: "Melbourne", lat: -37.81, lon: 144.96),
+        City(name: "Other", lat: -20.81, lon: 123.96)
     ]
 
     override func viewDidLoad() {
